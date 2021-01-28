@@ -31,8 +31,16 @@ public class DummyUserService {
         this.userDAO = userDAO;
     }
 
+    /***
+     * Creates a User object specified in the parameter, adds it to the simulated DB,
+     * and returns it as well.
+     * @param user User object to be added to database.
+     * @return The User object added to the database.
+     */
     public User addUser(User user) {
-        return userDAO.createUser(user.getUserName());
+        User tmp = userDAO.createUser(user.getUserName());
+        userDAO.insertUser(tmp);
+        return tmp;
     }
 
     public Set<User> getDB() {
