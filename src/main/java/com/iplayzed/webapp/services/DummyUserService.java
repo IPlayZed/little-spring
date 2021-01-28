@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+import java.util.Set;
+
 /***
  * A user service class, specifying DAO implementation.
  * @Service YES
@@ -29,8 +31,11 @@ public class DummyUserService {
         this.userDAO = userDAO;
     }
 
-
     public User addUser(User user) {
         return userDAO.createUser(user.getUserName());
+    }
+
+    public Set<User> getDB() {
+        return userDAO.getDB();
     }
 }
