@@ -9,10 +9,10 @@ import java.util.UUID;
 public interface UserDAO {
     /***
      * Updates the user's id.
-     * @param uuid New id.
+     * @param name The name to be changed to.
      * @param user User to be updated.
      */
-    void updateUser(UUID uuid, User user);
+    void updateUser(String name, User user);
     /***
      * Creates a new user with a random ID.
      * @param name the new User's name.
