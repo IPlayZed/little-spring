@@ -14,4 +14,16 @@ public class User {
         this.userID = userID;
         this.userName = userName;
     }
+
+    public UUID getUserID() {
+        return userID;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
 }
