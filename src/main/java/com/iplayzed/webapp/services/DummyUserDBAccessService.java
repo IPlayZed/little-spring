@@ -1,5 +1,6 @@
-package com.iplayzed.webapp.daos;
+package com.iplayzed.webapp.services;
 
+import com.iplayzed.webapp.daos.UserDAO;
 import com.iplayzed.webapp.models.User;
 
 import java.util.Set;
