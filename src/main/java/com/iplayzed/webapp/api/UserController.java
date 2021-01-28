@@ -1,15 +1,22 @@
 package com.iplayzed.webapp.api;
 
-import com.iplayzed.webapp.services.UserService;
+import com.iplayzed.webapp.services.DummyUserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RestController;
 
+/***
+ *
+ */
+@RestController
 public class UserController {
-    private final UserService userService;
+    private final DummyUserService dummyUserService;
 
-    public UserController(UserService userService) {
-        this.userService = userService;
+    @Autowired
+    public UserController(DummyUserService dummyUserService) {
+        this.dummyUserService = dummyUserService;
     }
 
     public void addUser(String name) {
-        userService.addUser(name);
+        dummyUserService.addUser(name);
     }
 }
