@@ -21,12 +21,16 @@ public class UserController {
     }
 
     /***
-     *
-     * @param user adds
+     * Adds a user to the database. If ID is omitted in the POST request, then it generates a user
+     * with the name from POST request and a random ID.
+     * The generated user is also written on the standard output.
+     * @param user User object to be added.
      */
     @PostMapping
     public void addUser(@RequestBody User user) {
-        dummyUserService.addUser(user);
+        //TODO: apply unit tests!
+        User tmp = dummyUserService.addUser(user);
+        System.out.println(tmp + ": " + tmp.getUserID() + " " + tmp.getUserName());
     }
 
     @GetMapping
