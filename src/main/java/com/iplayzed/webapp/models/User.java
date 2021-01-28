@@ -1,5 +1,7 @@
 package com.iplayzed.webapp.models;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.UUID;
 
 /***
@@ -9,8 +11,10 @@ public class User implements Comparable<User>{
     private final UUID userID;
     private String userName;
 
-    /** Sets the userID and userName for a User instance. */
-    public User(UUID userID, String userName) {
+    /**
+     * Sets the userID and userName for a User instance.
+     */
+    public User(@JsonProperty("userID") UUID userID, @JsonProperty("userName") String userName) {
         this.userID = userID;
         this.userName = userName;
     }
