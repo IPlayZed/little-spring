@@ -11,6 +11,7 @@ import java.util.UUID;
 public interface UserDAO {
     /***
      * Creates a new user with a random ID and a given name.
+     * If ID is omitted, then it is randomly generated.
      * @param name the new user's name.
      * @return the new User object.
      */
