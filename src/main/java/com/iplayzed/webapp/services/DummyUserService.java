@@ -30,7 +30,7 @@ public class DummyUserService {
     }
 
 
-    public User addUser(String name) {
-        return userDAO.createUser(name);
+    public User addUser(User user) {
+        return userDAO.createUser(user.getUserName());
     }
 }
