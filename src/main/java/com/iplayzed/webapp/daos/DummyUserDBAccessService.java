@@ -4,6 +4,7 @@ import com.iplayzed.webapp.models.User;
 
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.UUID;
 
 public class DummyUserDBAccessService implements UserDAO {
     private static final Set<User> dummyDB = new TreeSet<>();
@@ -29,5 +30,17 @@ public class DummyUserDBAccessService implements UserDAO {
     @Override
     public void insertUser(User user) {
         dummyDB.add(user);
+    }
+
+    /***
+     * Creates a new user with a random ID and a given name.
+     * @param uuid the new user's id.
+     * @param name the new user's name.
+     * @return the new User object.
+     */
+
+    @Override
+    public User createUser(UUID uuid, String name) {
+        return new User(uuid, name);
     }
 }
