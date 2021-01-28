@@ -3,10 +3,9 @@ package com.iplayzed.webapp.api;
 import com.iplayzed.webapp.models.User;
 import com.iplayzed.webapp.services.DummyUserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Set;
 
 /***
  * Implements HTTP requests using REST API.
@@ -28,5 +27,14 @@ public class UserController {
     @PostMapping
     public void addUser(@RequestBody User user) {
         dummyUserService.addUser(user);
+    }
+
+    @GetMapping
+    public Set<User> getDB() {
+        Set<User> tmp = dummyUserService.getDB();
+        for (User user : tmp) {
+            System.out.println(user.getUserID() + " " + user.getUserName());
+        }
+        return tmp;
     }
 }

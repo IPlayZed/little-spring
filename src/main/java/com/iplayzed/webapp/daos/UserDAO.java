@@ -2,6 +2,7 @@ package com.iplayzed.webapp.daos;
 
 import com.iplayzed.webapp.models.User;
 
+import java.util.Set;
 import java.util.UUID;
 
 /***
@@ -37,4 +38,9 @@ public interface UserDAO {
      * @param user User to be updated.
      */
     void updateUser(String name, User user);
+
+    /***
+     * @return The users from the db.
+     */
+    Set<User> getDB();
 }

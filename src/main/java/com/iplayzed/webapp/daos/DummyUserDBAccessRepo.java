@@ -50,4 +50,13 @@ public class DummyUserDBAccessRepo implements UserDAO {
     public User createUser(UUID uuid, String name) {
         return new User(uuid, name);
     }
+
+    /***
+     * Returns a reference for the DB.
+     * @return The users from the DB.
+     */
+    @Override
+    public Set<User> getDB() {
+        return dummyDB;
+    }
 }
