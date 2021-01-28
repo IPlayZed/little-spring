@@ -1,13 +1,19 @@
-package com.iplayzed.webapp.services;
+package com.iplayzed.webapp.daos;
 
-import com.iplayzed.webapp.daos.UserDAO;
 import com.iplayzed.webapp.models.User;
+import org.springframework.stereotype.Repository;
 
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.UUID;
 
-public class DummyUserDBAccessService implements UserDAO {
+/***
+ * This class simulates the implementation for direct DB access, thus acting as
+ * a repository.
+ * @Repository YES
+ */
+@Repository("DummyDBAccess")
+public class DummyUserDBAccessRepo implements UserDAO {
     private static final Set<User> dummyDB = new TreeSet<>();
 
     /***
