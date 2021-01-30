@@ -34,14 +34,18 @@ public interface UserDAO {
     void insertUser(User user);
 
     /***
-     * Updates the user's id.
+     * Interface for updating the user's name.
+     * The user is searched based on ID.
      * @param name The name to be changed to.
      * @param user User to be updated.
      */
     void updateUser(String name, User user);
 
     /***
+     * User
      * @return The users from the db.
      */
     Set<User> getDB();
+
+    User getUserByID(UUID uuid);
 }

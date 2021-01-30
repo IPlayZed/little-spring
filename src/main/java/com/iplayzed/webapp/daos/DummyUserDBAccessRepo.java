@@ -59,4 +59,16 @@ public class DummyUserDBAccessRepo implements UserDAO {
     public Set<User> getDB() {
         return dummyDB;
     }
+
+    @Override
+    public User getUserByID(UUID uuid) {
+        User tmp = null;
+        for (User item : dummyDB) {
+            if (item.getUserID() == uuid) {
+                tmp = item;
+                break;
+            }
+        }
+        return tmp;
+    }
 }

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
+import java.util.UUID;
 
 /***
  * A user service class, specifying DAO implementation.
@@ -45,5 +46,9 @@ public class DummyUserService {
 
     public Set<User> getDB() {
         return userDAO.getDB();
+    }
+
+    public User getUserByID(UUID uuid) {
+        return userDAO.getUserByID(uuid);
     }
 }

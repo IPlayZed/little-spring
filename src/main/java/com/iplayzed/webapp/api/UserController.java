@@ -6,19 +6,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Set;
+import java.util.UUID;
 
 /***
  * Implements HTTP requests using REST API.
  */
-@RequestMapping("api/v1/user")
+
+//produces: format data into json
+@RequestMapping(path = "api/v1/user", produces = "application/json;charset=UTF-8")
 @RestController
 public class UserController {
-    private final DummyUserService dummyUserService;
+    //private final DummyUserService dummyUserService;
 
     @Autowired
-    public UserController(DummyUserService dummyUserService) {
+    DummyUserService dummyUserService;
+    /*public UserController(DummyUserService dummyUserService) {
         this.dummyUserService = dummyUserService;
-    }
+    }*/
 
     /***
      * Adds a user to the database. If ID is omitted in the POST request, then it generates a user
@@ -33,12 +37,17 @@ public class UserController {
         System.out.println(tmp + ": " + tmp.getUserID() + " " + tmp.getUserName());
     }
 
-    @GetMapping
+    @GetMapping()
     public Set<User> getDB() {
         Set<User> tmp = dummyUserService.getDB();
         for (User user : tmp) {
             System.out.println(user.getUserID() + " " + user.getUserName());
         }
         return tmp;
+    }
+
+    @GetMapping(params = "UUID")
+    public User getUserById(@RequestParam UUID uuid) {
+        return dummyUserService.getUserByID(uuid);
     }
 }
