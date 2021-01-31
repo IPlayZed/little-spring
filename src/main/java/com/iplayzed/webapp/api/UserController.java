@@ -2,7 +2,6 @@ package com.iplayzed.webapp.api;
 
 import com.iplayzed.webapp.models.User;
 import com.iplayzed.webapp.services.DummyUserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Set;
@@ -13,16 +12,15 @@ import java.util.UUID;
  */
 
 //produces: format data into json
+//see more for https://docs.spring.io/spring-framework/docs/5.3.3/reference/html/web.html#mvc
 @RequestMapping(path = "api/v1/user", produces = "application/json;charset=UTF-8")
 @RestController
 public class UserController {
-    //private final DummyUserService dummyUserService;
+    private final DummyUserService dummyUserService;
 
-    @Autowired
-    DummyUserService dummyUserService;
-    /*public UserController(DummyUserService dummyUserService) {
+    public UserController(DummyUserService dummyUserService) {
         this.dummyUserService = dummyUserService;
-    }*/
+    }
 
     /***
      * Adds a user to the database. If ID is omitted in the POST request, then it generates a user
@@ -37,6 +35,7 @@ public class UserController {
         System.out.println(tmp + ": " + tmp.getUserID() + " " + tmp.getUserName());
     }
 
+    //Using @GetMapping is the same as using @RequestMapping(method=RequestMethod.GET)
     @GetMapping()
     public Set<User> getDB() {
         Set<User> tmp = dummyUserService.getDB();
